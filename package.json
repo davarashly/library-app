@@ -1,0 +1,10 @@
+{
+  "name": "library-app",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "yargs": "^13.2.2"
+  }
+}
