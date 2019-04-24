@@ -6,5 +6,8 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "yargs": "^13.2.2"
+  },
+  "scripts": {
+    "start": "yarn node ."
   }
 }

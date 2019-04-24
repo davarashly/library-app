@@ -7,7 +7,7 @@ function getLibrary() {
   try {
     a = JSON.parse(fs.readFileSync(path))
   } catch (e) {
-    if (e.message != "Unexpected end of JSON input") {
+    if (e.message !== "Unexpected end of JSON input") {
       console.error(chalk.red.bold(`Can't get the library!`))
       console.error(chalk.red.inverse(e.message))
     } else a = []

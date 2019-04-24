@@ -3,6 +3,6 @@
 Node.js console app
 
 ```bash
-cd *path*/library-app
+cd {path}/library-app
 node ./ --help
 ```
