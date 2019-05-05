@@ -2,6 +2,14 @@ const fs = require("fs"),
   path = "./src/library.json",
   chalk = require("chalk")
 
+function getAmount() {
+  let lib = getLibrary()
+
+  console.log(
+    `There are ${word(lib.length, ["book", "books", "books"])} in the Library.`
+  )
+}
+
 function getLibrary() {
   let a
   try {
@@ -77,14 +85,41 @@ function printBook(book) {
 
 function printLibrary() {
   let library = getLibrary()
-  library.forEach(book => {
+  getAmount()
+  library.forEach((book, i, library) => {
     printBook(book)
-    console.log()
+    if (i < library.length) console.log()
   })
+}
+
+function word(a, words) {
+  let word = 0
+  let n = a
+  if (n > 99) n = toTwo(n)
+
+  if (n >= 21 && n <= 99) n = toOne(n)
+
+  if ((n >= 10 && n <= 20) || n >= 5 || n == 0) word = 2
+  else if (n >= 2 && n <= 4) word = 1
+
+  return a + " " + words[word]
+}
+
+function toTwo(a) {
+  let s = "" + a
+  a = parseInt(s.substring(s.length() - 2))
+  return a
+}
+
+function toOne(a) {
+  let s = "" + a
+  a = parseInt(s.substring(s.length() - 1))
+  return a
 }
 
 module.exports = {
   addToLibrary,
   removeFromLibrary,
-  printLibrary
+  printLibrary,
+  getAmount
 }
